@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myweb-rs
+spec:
+  replicas: 2
+  selector:
+    matchExpressions:
+      - { key: env, operator: In, values: [production] }
+      - { key: region, operator: In, values: [IN] }
+  template:
+    metadata:
+      name: myweb-pod
+      labels:
+        env: production
+        region: IN
+        dc: "2"
+    spec:
+      containers:
+        - name: myweb-con
+          image: devmohitlive/webos:v1
