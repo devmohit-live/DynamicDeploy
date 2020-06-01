@@ -1,3 +1,3 @@
 FROM httpd
-COPY ./ws/webfiles /usr/local/apache2/htdocs/
+COPY ./TickyClock/*  /usr/local/apache2/htdocs/
 EXPOSE 80
