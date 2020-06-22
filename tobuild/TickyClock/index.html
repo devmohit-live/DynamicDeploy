@@ -8,9 +8,29 @@
 
 	<title>Clocky | that changes BG</title>
 
-	<link rel="stylesheet" href="./css/clockStyle.css">
+	
+<style type="text/css">
+@import 'https://fonts.googleapis.com/css?family=Bungee+Shade';
 
+html, body{
+    height: 100%;
+}
+
+#clock{
+    color: #fff;
+    font-family: 'Bungee Shade', cursive;
+    font-size: 70px;
+    
+    position: relative;
+    top: 50%;
+    margin-top: -35px;
+    text-align: center;
+
+}
+</style>
 </head>
+
+
 
 <body>
 
@@ -23,7 +43,41 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 	<script>
-	</script>
+</script>
+
+
+<script>
+var d, h, m, s, clock, color;
+
+function cloky() {
+  d = new Date();
+  h = d.getHours();
+  m = d.getMinutes();
+  s = d.getSeconds();
+
+  if (h <= 9) {
+    h = "0" + h;
+  }
+  if (m <= 9) {
+    m = "0" + m;
+  }
+  if (s <= 9) {
+    s = "0" + s;
+  }
+
+  clock = h + ":" + m + ":" + s;
+  color = "#" + h + m + s;
+
+  document.getElementById("clock").innerHTML = clock;
+  document.body.style.background = color;
+
+  setTimeout(cloky, 1000);
+}
+
+cloky();
+
+</script>
+
 
 </body>
 
